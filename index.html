@@ -18,31 +18,303 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section data-transition="zoom" data-background-transition="slide">
-					<img class="logo" src="assets/near-logo.svg" />
-
-					<a href="https://near.org/papers/the-official-near-white-paper/">https://near.org/papers/the-official-near-white-paper</a>
+			<div class="slides l-stack">
+				<section data-transition="slide">
+					<div>
+						<img class="logo" src="assets/near-logo.svg" />
+					</div>
 
 					<ul class="mt">
 						<li>Arthur Santos</li>
 						<li>Leonardo Razovic</li>
 						<li>Marijo Radman</li>
-						<li>Tom Pignard</li>
 						<li>Sam Ruberti</li>
+						<li>Tom Pignard</li>
+					</ul>
+
+					<div class="mt">
+						<a href="https://near.org/papers/the-official-near-white-paper/">https://near.org/papers/the-official-near-white-paper</a>
+					</div>
+					<p>(Not financial advice)</p>
+				</section>
+
+				<section data-transition="slide">
+					<h2>Outline</h2>
+
+					<ul class="mt">
+                      <li><a href="#2">Introduction</a></li>
+                      <li><a href="#4">Economics</a></li>
+                      <li><a href="#5">Cryptography</a></li>
+                      <li><a href="#5">Governance</a></li>
+                      <li><a href="#5">Guarantees</a></li>
+                      <li><a href="#5">Structure</a></li>
+                      <li><a href="#5">Threat Models</a></li>
+                      <li><a href="#5">Conclusion</a></li>
 					</ul>
 				</section>
-				<section data-transition="zoom" data-background-transition="slide">
-					<h2>Outline</h2>
+
+				<section data-transition="zoom" data-background-color="#d33682">
+					<h2>Introduction</h2>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🥑 Core offerings</h4>
+					<p>
+						NEAR is a community run blockchain-cloud built on Rust that allows <b>developers</b> to sustainably build applications which secure high value assets while making them performant and "infinitely scalable."
+					</p>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🤷‍ What can users do?</h4>
 					<ul>
-                      <li><a href="#2">Cryptography</a></li>
-                      <li><a href="#3">Economics</a></li>
-                      <li><a href="#3">Governance</a></li>
-                      <li><a href="#3">Blckchain Guarantees</a></li>
-                      <li><a href="#3">Blockchain Structure</a></li>
-                      <li><a href="#3">Threat Models</a></li>
-                      <li><a href="#3">Conclusion</a></li>
+						<li>
+							Developers can build services in a permissionless environment and receive <b>rewards</b> when consumers interact with their applications.
+						</li>
+						<li>
+							Token holders can interact with applications with <b>fast</b> transaction speeds and <b>low fees</b>, and they can <b>stake</b> their assets to earn rewards through a Proof of Stake mechanism.
+						</li>
 					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>❄ Uniqueness</h4>
+					<ul>
+						<li>
+							The economic model is built around the devloper first and introduces a deflationary mechanism for the token - a large portion of the transaction fees are burned.
+						</li>
+						<li>
+							NEAR is a sharded, proof of stake, layer-one blockchain and claims to be infinitely scalable.
+						</li>
+					</ul>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#2aa198">
+					<textarea data-template>
+						## Economics
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						### 💰 The NEAR token
+
+						NEAR is the native token used for
+						* <b>Security</b> of the network (PoS)
+						* Medium of exchange
+							- Network <b>transactions</b>
+							- Network <b>storage</b>
+
+						---
+
+						### ☯️ Market Equilibrium
+						There are three main economic forces in NEAR that affect the total supply
+
+						* <b>Developers</b>
+						* <b>Token holders</b>
+						* <b>Inflation</b>
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### ⌨️ Developers
+						<span class="fragment fade-in-then-semi-out">Developers are rewarded for creating useful applications. They receive <b>30%</b> of a user's transaction fees when their contracts are called.</span>
+						<span class="fragment fade-in">The remaining <b>70%</b> is burned🔥.
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 👨‍💼 Token Holders
+						<span class="fragment fade-in-then-semi-out">
+							Active users <b>decrease</b> the total supply of the token via the burned portion of their transaction fees.
+						</span>
+
+						<span class="fragment fade-in">
+							Inactive users allow the total supply to <b>increase</b> via inflation.
+						</span>
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 📈 Inflation
+
+						* Validators receive rewards based on a <b>5%</b> annual inflation rate. <b>4.5%</b> of these rewards are distributed to active validators based on the percentage of their stake.
+						* <b>0.5%</b> of the annual rewards are given to the treasury. 
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### ⚖️ In Summary
+						
+						Market equilibrium is dynamic based on the opposing forces of network <b>participation</b> and <b>inflation</b>. 
+
+						<table class="mt">
+							<thead>
+								<tr>
+									<th>tx/day</th>	
+									<th>NEAR / day</th>
+									<th>Ann Inflation</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1,000</td>
+									<td>136,986</td>
+									<td>5.000%</td>
+								</tr>
+								<tr>
+									<td>1 Million</td>
+									<td>136,986</td>
+									<td>4.996%</td>
+								</tr>
+								<tr>
+									<td>1.5 Billion</td>
+									<td>-13,014</td>
+									<td>-0.475%</td>
+								</tr>
+								<tr>
+									<td><b>2 Billion</b></td>
+									<td>-64,014</td>
+									<td><b>-2.300%</b></td>
+								</tr>
+							</tbody>
+						</table>
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 🎭 Tragedy of the Commons
+						
+						* In game theory Tragedy of the Commons states that <b>over consumption</b> of a common good by an individual inflicts damage on the rest. 
+						
+						* Over fishing, for example, provides the optimal benefit for the <b>individual</b>, but decreases the total fish population. 
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 🗃 Blockchain Storage is Common Good
+
+						* It is possible for the market to become flooded with applications and <b>bloat storage</b>.
+
+						* NEAR therefore requires developers to maintain a <b>wallet balance</b> in proportion to the storage that their applications consume.
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 🤷‍♂️️ What does this do?
+
+						* There is an <b>opportunity cost</b> with maintaining a wallet balance because those funds cannot be staked loose their value proportional to inflation.
+
+						* The number of applications you can release are limited to your budget.
+
+						* <b>Useful</b> applications will pay for themselves through transaction fees (or other) gains. 
+
+						* <b>Unuseful</b> application will cost money.
+
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 🤷‍♂️️ Public Good Game
+
+						* The Validators are slashed for bad behavior (see “Validators” chapter) and rewarded for good behavior. From the game theoretical point of view the validators do not have any rational reason to misbehave in the network.
+
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 👍 What we like
+
+						* Stuff
+
+						* The number of applications you can release are limited to your budget.
+					</textarea>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#cb4b16">
+					<textarea data-template>
+						## Cryptography
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#6c71c4">
+					<textarea data-template>
+						## Governance
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#cb4b16">
+					<textarea data-template>
+						## Structure
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#b58900">
+					<textarea data-template>
+						## Guarantees
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#dc322f">
+					<textarea data-template>
+						## Threat Models
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</section>
+
+				<section data-markdown data-transition="zoom" data-background-color="#586e75">
+					<textarea data-template>
+						## Conclusion
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Lorem Ipsum</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
 				</section>
 			</div>
 		</div>
