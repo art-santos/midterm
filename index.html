@@ -42,14 +42,14 @@
 					<h2>Outline</h2>
 
 					<ul class="mt">
-                      <li><a href="#2">Introduction</a></li>
-                      <li><a href="#4">Economics</a></li>
-                      <li><a href="#5">Cryptography</a></li>
-                      <li><a href="#5">Governance</a></li>
-                      <li><a href="#5">Guarantees</a></li>
-                      <li><a href="#5">Structure</a></li>
-                      <li><a href="#5">Threat Models</a></li>
-                      <li><a href="#5">Conclusion</a></li>
+                      <li>Introduction</li>
+                      <li>Economics</li>
+                      <li>Cryptography</li>
+                      <li>Governance</li>
+                      <li>Guarantees</li>
+                      <li>Structure</li>
+                      <li>Threat Models</li>
+                      <li>Conclusion</li>
 					</ul>
 				</section>
 
@@ -103,6 +103,8 @@
 						* Medium of exchange
 							- Network <b>transactions</b>
 							- Network <b>storage</b>
+
+						The initial supply was 1 billion tokens
 
 						---
 
@@ -224,7 +226,7 @@
 					<textarea data-template>
 						#### ‍🤜️️🤛 || 🔪 Public Good Game
 
-						The Validators are slashed for bad behavior (see “Validators” chapter) and rewarded for good behavior. From the game theoretical point of view the validators do not have any rational reason to misbehave in the network.
+						The Validators are slashed for <b>bad behavior</b> (more later) and rewarded for <b>good behavior</b>. Validators do not have any rational reason to misbehave.
 
 					</textarea>
 				</section>
@@ -233,10 +235,30 @@
 					<textarea data-template>
 						#### 👍 What we like
 
-						* Stuff
-
-						* More stuff
+						The lockup and vesting schedule of the team and founders is very fair. They have a long term commitment to the project, which will bring the most quality to the project over the five years. They also took a small percentage of the overall token distribution and probably deserved more! (The reason is probably that they raised money in a bear market).
 					</textarea>
+				</section>
+
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						#### 👍 What we like
+
+						Developers receive rewards for useful applications. This incentive is a great way to build the ecosystem with quality services, attract developers, and counter inflation.
+					</textarea>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<p>
+						NEAR took a lot of investments giving investors 24% of the tokens in addition to another 12% in community sales. This amount is unsual. There is also no lockup schedule for investors and only 24-36 months vesting schedule. The investors therefore do not have a long time incentive for the project and it puts selling pressure on the entire ecosystem in the early stage. In addition, the inflation is not put on the investors, which means that the community pays for the block rewards. We feel that the investors got a free ride and their rewards were unfairly balanced.
+					</p>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<p>
+						The guard against the Tragedy of the Common good is only as strong as the current inflation rate. With 2 billion transactions per day the effective inflation rate would be -2.3%.  We would add a linear payment mechanism to developers based on storage size if inflation dropped below 1% to make storage a little more “painful.” The performance of the application itself would need to be exceptional to justify its existence in storage.
+					</p>
 				</section>
 
 				<section data-markdown data-transition="zoom" data-background-color="#cb4b16">
@@ -453,10 +475,59 @@
 				</section>
 
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</p>
+					<h4>🏛 Off-Chain Governance</h4>
+					<p>NEAR is currently maintained by a <b>centralized</b> entity that makes decisions off-chain. There are plans to create a governance body on-chain in the future, but they argue that a democracy would inhibit initial development velocity.</p>
+				</section>
+
+				<section data-transition="slide">
+					<h4>💂 Reference Maintainer</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							All discussions regarding proposals take place in the <b>NEAR Governance Community</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							A Reference Maintainer is selected to oversee <b>technical</b> responsibilities.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👍 What we like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							 At least the NEAR Governance forum is <b>public</b> and <b>no registration</b> is required. (Unlike Discord, etc).
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							They recognize that the current situation is <b>not ideal</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Without a democracy <b>decision making speed</b> is fast.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The code is open source. Terrible decisions can be corrected with a <b>hard fork</b>.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The Reference Maintainer is elected by NEAR Foundation and is no different than a <b>Web 2.0</b> company.
+						</li>
+						
+						<li class="fragment fade-in-then-semi-out">
+							The Foundation makes all final decisions, but has <b>obligations</b> to their investors and have their own self-interests.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Voting is <b>opaque</b> and not verifiable.
+						</li>
+					</ul>
 				</section>
 
 				<section data-markdown data-transition="zoom" data-background-color="#cb4b16">
@@ -466,9 +537,196 @@
 				</section>
 
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
+					<h4>🧩 Shards</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Consensus across all nodes for all shards is achieved through NEAR's <b>Nightshade</b> algorithm.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Nightshade assumes that all of the shards combine to produce a <b>single block</b>, and each block “contains” all the transactions for all the shards.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							There are no shard chains in Nightshade. All block producers and validators are working together to create a single blockchain, which we refer to as the <b>Main Chain</b>.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧩 🧩 > 🤝 Consensus</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Consensus is achieved via the <b>heaviest chain</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Block producers (BPs) <b>collect signatures</b> from other BPs and validators attesting to the previous block.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The cumulative stake of all signers determines the <b>weight</b> of a block.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							For each block (and <b>every shard</b>) there is one BP who is responsible to produce a <b>chunk</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							A chunk contains the list of the <b>transactions</b> and the <b>Merkle root</b> of the resulting state.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🏁 Finally</h4>
+
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						Finally a header is created for all chunks containing the merkle root of the <b>final state</b>.
+					</p>
+
+					<img src="assets/beacon-nightshade.png" />
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧩 One more thing on Shards...</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Blocks are produced more-or-less every <b>second</b> regardless if individual shards have produced its chunk for that specific block height.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							If a transaction needs to affect more than one shard, it needs to be consecutively executed in each shard <b>separately</b>.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>☠️ Doomslug</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Doomslug is a protocol to assure honesty of validators but <b>slashing</b> bad actors.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Doomslug establishes <b>finality</b> and is <b>irreversible</b> unless at least one participant is slashed.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🏗 Architecture</h4>
+					<p>
+						<b>Contract</b> calls are executed inside the WASM runtime (security). Other calls are executed in the <b>native client</b>.
+					</p>
+
+					<img style="width: 500px" src="assets/near-diagram.png" />
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧱 Block</h4>
+					<p>The block is mainly composed of a <b>BlockHeader</b> and a vector of chunks from the <b>different shards</b>.</p>
+					<pre>
+						<code>
+							#[derive(BorshSerialize, BorshDeserialize, Debug, Clone, Eq, PartialEq)]
+							pub struct BlockV2 {
+								pub header: BlockHeader,
+								pub chunks: Vec{ShardChunkHeader},
+								pub challenges: Challenges,
+							
+								pub vrf_value: near_crypto::vrf::Value,
+								pub vrf_proof: near_crypto::vrf::Proof,
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section data-transition="slide">
+					<h4>💆‍♂️ Header</h4>
+					<p>
+						The header contains the <b>hash</b> of the previous block, the <b>signature</b> of the block producer, the <b>hash</b> of the current block, and some <b>metadata</b> structs.
+					</p>
+					<pre>
+						<code>
+							pub struct BlockHeaderV3 {
+								pub prev_hash: CryptoHash,
+								/// Inner part of the block header that gets hashed, split into two parts, one that is sent
+								/// to light clients, and the rest
+								pub inner_lite: BlockHeaderInnerLite,
+								pub inner_rest: BlockHeaderInnerRestV3,
+								/// Signature of the block producer.
+								pub signature: Signature,
+								/// Cached value of hash for this block.
+								pub hash: CryptoHash,
+							}
+						</code>
+					</pre>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧾 Receipts</h4>
+					<p>
+						All cross-contract communication in NEAR happens through <b>Receipts</b>. The STF does the following:
+					</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Snapshot the initial state.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Apply validator accounts update, if available.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Convert new signed transactions into the Receipts.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Process Receipts.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Check that incoming and outgoing balances match.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Finalize trie update.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Return ApplyResult
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👍 What we like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							WebAssembly for the runtime allows for excellent <b>performance</b>. 
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Developers can code in any language that compiles to <b>WASM</b>, including AssemblyScript (A TypeScript-like language)
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Block creation and Doomslug are divided in a <b>hybrid consensus</b>. Combining these two processes enables NEAR to build blocks quickly while allowing the slower finality mechanism to operate in a <b>separate process</b> to finalise blocks without the risk of slower transactions.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<p>
+						It is possible for Nightshade to have too many receipts that target a shards in a specific block. The time it takes from the creation of the receipt to the application can be longer and longer if the system is under an uneven load for an extended period of time.
+					</p>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<p>
+						A chunk can be invalid and therefore a challenge period was implemented. In particular, the destination shard of any cross-shard transction cannot be certain the originating shard chunk or block is final until the challenge period is over. The existence of the challenge protocol (Fisherman) creates a new vector of attacks when malicious nodes spam with invalid challenges.							
 					</p>
 				</section>
 
@@ -479,10 +737,97 @@
 				</section>
 
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</p>
+					<h4>👼 Liveness</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Liveness is maintained if more than 1/2 of validators are online.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The block producer who's most ahead in time is the witness.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							If all block producers of a specific block in a specific shard are online for more time than the time necessary for the block creation, we can assume that block will be created in a finite time.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>⚖️ Fairness</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Validation is designed to run on hardware that is accessible by all.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							NEAR is a permissionless blockchain, so anyone can deploy an application.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							VRF is used to ensure that validator selections are unbiased.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🦺 Safety</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Nightshade's Finality Gadget requires more rounds of communication, but fewer blocks built on top of it till it's considered safe.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Unless there's at least one block producer who's considered dishonest a produced block cannot be reversed.	
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							A finalized block just can be reversed if more than 30% of the producers are considered dishonest.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧲 Censorship Resistence</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							NEAR is opperated by the NEAR Foundation and is exposed to censorship and government interference.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Token holders have little resistence to censorship from the NEAR Foundation, who decides everything.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Many guilds exist on NEAR. They are communities with shared interests and a lot of token power. They can form validators to join in on consensus.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👍 What we like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Doomslug provides liveness guarantess even in case where finality stalls due to more than 33% of the validators missing.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The requirements to run a validator are reasonable, which helps to preserve censorship resistence by allowing censored parties to join the consensus if needed.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The number of validators is very small (100) and makes the network partially <b>centralized</b> and weakens censorship resistence.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The NEAR foundation is still <b>too powerful</b>. This may result in <b>censorship</b>.
+						</li>
+					</ul>
 				</section>
 
 				<section data-markdown data-transition="zoom" data-background-color="#dc322f">
@@ -491,11 +836,165 @@
 					</textarea>
 				</section>
 
+				<section data-markdown data-transition="slide">
+					#### Byzantine generals problem
+					In a distributed environment where participants don't know each other, a consensus needs to be reached even in the presence of a set of unknown malicious actors, without the help of a central authority.
+					---
+					Nightshade is effectively the part that addresses the problem of the Byzantine generals, and like many proof of stake finality mechanisms, relies on a logic founded on PBFT
+					---
+					Nightshade, provides similar guarantees as PBFT, but also suffers the same drawbacks
+					* The protocol is secure as long as 2/3 of the validators are honest, but a complexity of <b>O(n^2)</b> in message passing for  of validators.
+					* If <b>1/3</b> of the participants of the protocol drop out, the protocol stalls.
+					---
+					The segregation of the block production part (Doomslug) from the finality part (Nightshade) preserves liveness and still offers guarantees of PBFT for users happy to accept the longer finality period.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Sybil Attack
+					* The block production mechanism, in which at least 51% of the block producers need to be honest
+					* The finality gadget, which requires a threshold of 2/3 honest validators to be online.
+					* This makes it crucial to prevent a malicious actor to secure many validator slots.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Sybil Attack
+					* Near relies on the fact that a sufficient amount of tokens need to be bounded for a validator to get a slot.
+					* As long as the token maintains sufficient value, it is expensive to create accounts that are funded enough to participate to the protocol.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### 51% Attacks
+
+					* Near uses a proof-of-stake algorithm where the security of the network depends on the amount of tokens that get staked (bonded) by the validators and the validator candidates.
+                    
+					* The security of the system can then be assessed in terms of a financial quantity in FIAT currency (e.g. USD) depending on the price of the token.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Finality
+					* In Near, any attack that takes over the finality mechanism is fatal.
+					* Nightshade requires 2/3 of the validators to be honest to finalize a block.
+					* The theoretical security threshold is half in case of a network partition of the honest validators (c.f. PBFT).
+					* The theoretical security is then equal to the cost of taking other the 1/3 + 1 least bonded validators.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Block Production
+
+* Doomslug ensures the chain will go on as long as at least 51% of the validators are online to endorse a block.
+
+* A malicious actor with 51% of the stake, could produce an invalid block and get it endorsed, but it would not be sufficient to get it finalized.
+
+* Such a block producer would be exposed to fishermen submitting fraud proofs to get him slashed.
+
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Block Production
+
+* Before finalization the security level is equal to the stash value of the block producer.
+
+* After finalization, it is equal to 1/3 of the stake.
+
+* The liveness and security of the protocol can also be badly impacted by the fact that there is no punishment for being offline during block production, other than the loss of the block reward.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Shard Security
+
+* Within one shard, if the majority of the validators gets corrupted, the shard itself can be fully taken over.
+* Validators on other shard are only operating a light-client equivalent verification on the corrupted shard.
+* Inter-shard transactions from a corrupted shard are dangerous and propagate state corruption.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Shard Security
+
+* Fishermen are incentivized to publish onchain challenges attesting from the invalidity of a given block shard.
+* In case of a successful challenge, the state is reverted to the one just before the shard corruption.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Adaptive Corruption
+
+* The possibility for a malicious party to bribe or corrupt only a specific subset of the actors in order to take over the network, or grief other participants.
+* A randomness beacon to assign validators to shards makes adapting corruption more difficult.
+* "Hidden validators" whose assignment to any given shard is not meant to be released publicly further prevent adaptive behavior.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### Adaptive Corruption
+
+* At the main chain level, block producers are operating in following a simple round robin
+* This leaves them open to adaptive attacks!
+* Validators are rotated once every epoch (15 hours), so any block that would be challenged within that period would let the set of validators exposed for the rest of the epoch.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### More Practical Considerations
+
+					* Near currently operates only on one shard and with 100 validators.
+					* Nothing is put in place to ensure that the stake are evenly distributed so there are huge differences between stakes
+					* The most bonded validator getting bonded for 25,000,000 NEAR tokens and the least bonded being worth only 180,000 NEAR tokens.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### More Practical Considerations
+
+					* Taking over the least slots relatively cheap if considering the security of a 4B USD network (at the time of writing, the price of the Near token is around 4.2USD)
+					* Taking over the last 34% of the validators and being in a theoretically able to take over the whole network requires only 11.5M Near tokens, which is less than 50M USD.
+				</section>
+
+				<section data-markdown data-transition="slide">
+					#### 
+
+					* Near currently operates only on one shard and with 100 validators.
+					* Nothing is put in place to ensure that the stake are evenly distributed so there are huge differences between stakes
+					* The most bonded validator getting bonded for 25,000,000 NEAR tokens and the least bonded being worth only 180,000 NEAR tokens.
+				</section>
+
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</p>
+					<h4>👍 What we like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Near is aware of and has addresses the different security challenges posed by proof-of-stake consensus based blockchains, albeit not always in an optimal manner.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Consensus separation in block production and finality that favours liveness while still maintaining PBFT security for mission critical usecases that can trade a higher speed for added security.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The problem of shard corruption spreading out being addressed through a clever use of randomness and hidden validators, with Fishermen being the end guardians.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Nothing is done to ensure the stakes of the validators are homogenized, leading to as system where the worst case security bound is practically very low even though the total bonded is reasonably high.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The use of round robin for the main block production, allowing for a malicious actor to adaptively bribe, grief, DDos, of more generally attack validators following their turns.
+						</li>
+
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							In case a bad block is challenged, the validators would be uncovered till the end of the epoch.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							No offline penalties apart from the missing reward.	
+						</li>
+					</ul>
 				</section>
 
 				<section data-markdown data-transition="zoom" data-background-color="#586e75">
@@ -504,11 +1003,29 @@
 					</textarea>
 				</section>
 
+				<section data-markdown data-transition="slide">
+					<textarea data-template>
+						### 🍺 Favorite features
+
+						An allocation of <b>30%</b> of transaction costs to developers is a unique way how to attract talent to work on the protocol. This design feature could accelerate the adoption of NEAR Protocol and differentiate NEAR from the competition in the future.
+						---
+						### 🍺 Favorite features
+
+						A UX centric approach that focuses not only on introducing new users to the network, but to make Web3 more democratic. Things such as human readable wallet addresses are one of the very prominent details that can be found on NEAR. The possibility of using Rust | AssemblyScript | Solidity to start creating on NEAR is a powerful tool for attracting non-crypto natives to the NEAR environment.
+						---
+						### 🥦 Least Favorite features
+						
+						We believe that a Layer 1 protocol, on which assets in billions, are transferred on a daily basis should not have a centralized entity like “the reference maintainer” who is able to decide by himself about the direction of a protocol.
+						---
+						### 🥦 Least Favorite features
+						
+						Cross-shard transactions are executed optimistically until challenged by fishermen if originating from an invalid block. If this happens, the chain gets rolled back to a previously valid state, potentially invalidating a full set of transactions happening within the challenge period. According to the nightshade paper, NEAR regards this as an “extremely rare event”, which is a very dangerous assumption.
+					</textarea>
+				</section>
+
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</p>
+					<h4>Thank You</h4>
+					<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F15BuyagtKucHm%2Fgiphy.gif&f=1&nofb=1" />
 				</section>
 			</div>
 		</div>
