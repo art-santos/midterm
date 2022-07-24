@@ -117,7 +117,7 @@
 
 				<section data-markdown data-transition="slide">
 					<textarea data-template>
-						#### ⌨️ Developers
+						#### ️💻 Developers
 						<span class="fragment fade-in-then-semi-out">Developers are rewarded for creating useful applications. They receive <b>30%</b> of a user's transaction fees when their contracts are called.</span>
 						<span class="fragment fade-in">The remaining <b>70%</b> is burned🔥.
 					</textarea>
@@ -222,9 +222,9 @@
 
 				<section data-markdown data-transition="slide">
 					<textarea data-template>
-						#### 🤷‍♂️️ Public Good Game
+						#### ‍🤜️️🤛 || 🔪 Public Good Game
 
-						* The Validators are slashed for bad behavior (see “Validators” chapter) and rewarded for good behavior. From the game theoretical point of view the validators do not have any rational reason to misbehave in the network.
+						The Validators are slashed for bad behavior (see “Validators” chapter) and rewarded for good behavior. From the game theoretical point of view the validators do not have any rational reason to misbehave in the network.
 
 					</textarea>
 				</section>
@@ -235,7 +235,7 @@
 
 						* Stuff
 
-						* The number of applications you can release are limited to your budget.
+						* More stuff
 					</textarea>
 				</section>
 
@@ -246,10 +246,204 @@
 				</section>
 
 				<section data-transition="slide">
-					<h4>Lorem Ipsum</h4>
+					<h4>✍ Digital Signatures</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							NEAR supports accounts derived from a public/private key scheme based on either curve <b>SECP256K1</b> or <b>Ed25519</b> (dalek library).
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The support of SECP256K1 is useful to maintain some compatibility layer with <b>Bitcoin</b> & <b>Ethereum</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">Most protocol operations effectively require <b>Ed25519</b> to be used.</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>📮 Accounts</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Public addresses are referenced my a DNS-like name by default (e.g. <b>alice.near</b>)
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							<b>Multiple</b> key pairs can be associated with an single account.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							<b>FunctionCall</b> keys grant privileges to key pairs for specific functions with predefined max token allowances. (Similar to Stash / Controller accounts in Substrate, but more granular)
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>#️⃣ Hash Functions</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							<b>SHA2-256</b> is used for most data structures.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							This hash function is battle-tested, but <b>slower</b> than Blake2/3.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							<b>Blake2b</b> is used in the new randomness beacon, but...
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							It is not clear why they do not use Blake2 in <b>all</b> cases.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🌳 Merkle-Patricia Tries</h4>
+
+					<p>Merkle-Patricia tries are used to record the chain state</p>
+
+					<img 
+						class="mt" 
+						style="width: 600px; padding:20px; background-color: white; border-radius: 24px;" 
+						src="assets/merkle-trie.svg" 
+					/>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🔬 Merkle Proofs</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							<b>Cannot</b> be tampered with without changing the root of the tree.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The tree roots are included into the blocks, producing a compact commitment for the whole state data.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🔗 Hash Lists</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						The chain itself is a hash list, where each block refers to its parent by including the parent's header hash in its own header.
 					</p>
+
+					<img 
+						class="mt fragment fade-in" 
+						style="width: 600px; padding:20px; background-color: white; border-radius: 24px;" 
+						src="assets/hash-list.svg" 
+					/>
+				</section>
+
+				<section data-transition="slide">
+					<h4>📝 Erasure Coding</h4>
+					
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Erasure coding is in the consensus itself.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Each validator of a shard sends erasure coded data to validators of other shards.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Ensures that only <b>1/3</b> of the validators can reconstruct data for all shards.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Data availability is enforced at consensus level by forcing validators to check whether the data is available before they accept a block.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>✍✍✍ Signature Aggregation > ✍</h4>
+					
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Block producers collect signatures of all validators and aggregate them with <b>BLS</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Aggregated signatures are published in a Merkle Trie of the individual signatures, and signed using <b>ECDSA</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Nodes that are syncing chain data can choose to skip the validation of individual signatures and merely <b>verify the ECDSA</b> signature from the validator (if the validator has not been challenged or slashed)
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🔎 🎲🎲 Verifiable Random Function</h4>
+					
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							VRFs are used in the new random beacon to generate randomness that's both unpredictable and unbiasable.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The randomness beacon is based on BLS signatures, and allows any given subset <b>k < n</b> of <b>n</b> nodes to produce randomness without any node set of size <b>k - 1</b> being able to learn any information about the randomness beacon.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>🧠 Succint Non-interactive ARguments of Knowledge (SNARK)</h4>
+					
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							NEAR relies on <b>fishermen</b> to ensure the security of shards (more later).
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							This is a fraud-proof approach that is cheap and easy to implement but the tradeoff is the negative impact on <b>liveness</b> and <b>speed</b> of the protocol due to the challenge period.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							NEAR plans to switch to a validity proof where each chunk producer would provide a <b>SNARK</b> attesting to the chunk validatity.	
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👍 What we like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The plan for bleeding edge primitives (SNARKS)
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Erasure coding to solve <b>data availability</b> issues - using a set of notaries keep long term data.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							Unbiased and unpredictable randomness for every <b>validator selection</b> using VRF (vs round-robin).
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The use of <b>BLS aggregation</b> of the signatures, which is elegant and efficient for a large number of validators. The final list is signed by <b>ECDSA</b>. Fast.
+						</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h4>👎 What we don't like</h4>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Most hashes are created from SHA2-256, which is <b>older</b> and <b>slower</b> than Blake2b.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The current challenge/response mechanism affects the protocol <b>liveness</b>.
+						</li>
+
+						<li class="fragment fade-in-then-semi-out">
+							The use of BLS aggregation is optimal for large signature lists, but there are currently only <b>100 validators</b>. 
+							If the number of validators increases, the Schnorr interactive aggregation phase may become unpractical.
+						</li>
+					</ul>
 				</section>
 
 				<section data-markdown data-transition="zoom" data-background-color="#6c71c4">
