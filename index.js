@@ -1,4 +1,4 @@
-import Deck, { VERSION } from './reveal.js'
+import Deck, { VERSION } from './js/reveal.js'
 
 /**
  * Expose the Reveal class to the window. To create a
