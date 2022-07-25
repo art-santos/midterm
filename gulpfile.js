@@ -75,7 +75,7 @@ let cache = {};
 gulp.task('js-es5', () => {
     return rollup({
         cache: cache.umd,
-        input: 'js/index.js',
+        input: './index.js',
         plugins: [
             resolve(),
             commonjs(),
@@ -98,7 +98,7 @@ gulp.task('js-es5', () => {
 gulp.task('js-es6', () => {
     return rollup({
         cache: cache.esm,
-        input: 'js/index.js',
+        input: './index.js',
         plugins: [
             resolve(),
             commonjs(),
